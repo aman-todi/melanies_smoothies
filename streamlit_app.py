@@ -24,7 +24,7 @@ if name_on_order and ingredients_list:
     for fruit in ingredients_list:
         ingredients_string += fruit + ' '
         # Display smoothiefruit nutrition information
-        fruit_api_name = session.table("smoothies.public.fruit_options").select(col('search_on')).where(col('fruit_name')==fruit)
+        fruit_api_name = session.table("smoothies.public.fruit_options").select(col('search_on')).where(col('fruit_name')==fruit).scalar.collect()
         st.text(fruit_api_name)
         api_req_string = "https://my.smoothiefroot.com/api/fruit/" + fruit_api_name
         smoothiefroot_response = requests.get(api_req_string)
