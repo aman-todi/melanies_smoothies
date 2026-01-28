@@ -19,7 +19,7 @@ pd_df = my_df.to_pandas()
 
 ingredients_list = st.multiselect(
     'Choose up to 5 ingredients:',
-    fruits_table,
+    my_df,
     max_selections=5)
 if name_on_order and ingredients_list:
     ingredients_string = ""
