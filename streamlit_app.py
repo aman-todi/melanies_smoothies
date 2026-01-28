@@ -36,5 +36,5 @@ if name_on_order and ingredients_list:
 
 # Display smoothiefruit nutrition information
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response)
+st.text(smoothiefroot_response.json())
 
