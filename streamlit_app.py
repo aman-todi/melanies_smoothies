@@ -26,9 +26,9 @@ if name_on_order and ingredients_list:
     for fruit in ingredients_list:
         ingredients_string += fruit + ' '
         # Display smoothiefruit nutrition information
-        fruit_api_name = pd_df.loc[pd_df['FRUIT_NAME'] == fruit, 'SEARCH_ON'].iloc[0]
-        api_req_string = "https://my.smoothiefroot.com/api/fruit/" + fruit_api_name
-        smoothiefroot_response = requests.get(api_req_string)
+        st.text(fruit + ' Nutrition Info')
+        search_on = pd_df.loc[pd_df['FRUIT_NAME'] == fruit, 'SEARCH_ON'].iloc[0]
+        smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{search_on}")
         sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
         
     #st.write(ingredients_string)
